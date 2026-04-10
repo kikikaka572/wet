@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Wet Your Whistle 🍺</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <!-- ══ HUD (인게임 전용) ══════════════════════════════ -->
+  <div id="hud" class="hidden">
+    <div id="hud-left">
+      <span id="hud-score">SCORE: 0</span>
+      <span id="hud-lives">❤️❤️❤️</span>
+      <span id="hud-level">LV.1</span>
+      <span id="hud-best"></span>
+    </div>
+    <button id="btn-mute" class="icon-btn">🔊</button>
+  </div>
+
+  <!-- ══ 이펙트 표시 줄 ════════════════════════════════ -->
+  <div id="effect-bar" class="hidden"></div>
+
+  <!-- ══ 보드 컨테이너 (고정 비율) ══════════════════════ -->
+  <div id="board-wrap">
+
+    <!-- 타이틀 우주 배경 캔버스 -->
+    <canvas id="title-canvas" width="540" height="620"></canvas>
+
+    <!-- 게임 캔버스 -->
+    <canvas id="game-canvas" width="540" height="620" class="hidden"></canvas>
+
+    <!-- ── 토스트 메시지 ──────────────────────────────── -->
+    <div id="toast" class="hidden"></div>
+
+    <!-- ── 시작 화면 오버레이 ─────────────────────────── -->
+    <div id="screen-start" class="overlay">
+      <button id="btn-mute-title" class="icon-btn corner-btn">🔊</button>
+      <div class="title-label">🍺 BREAKOUT GAME</div>
+      <h1 class="title-main">Wet Your<br>Whistle</h1>
+      <div id="title-best" class="title-best hidden">
+        🏆 최고기록 <span id="title-best-score"></span>점
+      </div>
+      <div class="btn-group">
+        <button id="btn-start" class="btn-primary">게임 시작</button>
+        <button id="btn-records" class="btn-secondary">🏆 점수 기록</button>
+      </div>
+    </div>
+
+    <!-- ── 점수 기록 모달 ─────────────────────────────── -->
+    <div id="screen-records" class="overlay hidden">
+      <div class="modal-title">🏆 점수 기록</div>
+      <div id="records-list">
+        <p class="no-records">아직 기록이 없어요</p>
+      </div>
+      <button id="btn-records-close" class="btn-ghost">닫기</button>
+    </div>
+
+    <!-- ── 게임오버 오버레이 ──────────────────────────── -->
+    <div id="screen-over" class="overlay hidden">
+      <div class="over-title">💀 게임오버</div>
+      <div class="over-score-wrap">
+        <div class="over-label">이번 점수</div>
+        <div id="over-score" class="over-score">0</div>
+        <div id="over-level" class="over-level">Lv.1 도달</div>
+      </div>
+      <div id="over-new-record" class="badge hidden">🎉 신기록!</div>
+      <div class="btn-group">
+        <button id="btn-retry" class="btn-primary">다시 하기</button>
+        <button id="btn-to-records" class="btn-secondary">🏆 기록 보기</button>
+      </div>
+    </div>
+
+  </div><!-- /board-wrap -->
+
+  <script src="game.js"></script>
+</body>
+</html>
